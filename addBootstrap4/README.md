@@ -1,30 +1,35 @@
 # addbootstrap4
 
-> A Vue.js project
+> Vue-cli專案加入bootstrap4
 
 ## Build Setup
 
 ``` bash
-# install dependencies
+# 建立專案
+vue init webpack
 npm install
 
-# serve with hot reload at localhost:8080
+# 安裝相關套件
+npm install bootstrap@4.0.0-beta jquery popper.js --save-dev
+
+# 修改 main.js
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'
+
+# 修改 webpack.base.conf.js
+plugins: [new webpack.ProvidePlugin({
+    jQuery: 'jquery',
+    $: 'jquery',
+    jquery: 'jquery',
+    Popper: ['popper.js', 'default']
+  })]
+
+# 修改 App.vue
+導入Bootstrap4元件
+
+# run web tests
 npm run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
