@@ -1,30 +1,43 @@
-# addbootstrap4
+# addComponent
 
-> A Vue.js project
+> Vue-cli新增組件
 
 ## Build Setup
 
 ``` bash
-# install dependencies
-npm install
+# add 2 component /src/components
+HelloWorld.vue, component02.vue
 
-# serve with hot reload at localhost:8080
+# edit App.vue
+<template>
+  <div>
+    ...
+    <HelloWorld></HelloWorld>
+    <component02></component02>
+  </div>
+</template>
+
+# import component
+<script>
+import HelloWorld from './components/HelloWorld'
+import component02 from './components/component02'
+export default {
+  name: 'app',
+  data () {
+    return {
+      msg: 'Chapter 02. Components'
+    }
+  },
+  components: {
+    HelloWorld, component02
+  }
+}
+</script>
+
+
+# run web tests
 npm run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
